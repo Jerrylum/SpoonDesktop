@@ -28,6 +28,7 @@ public class InputHelper {
             } else {
                 doClipboardWithBackup(text);
                 doPasteClipboard();
+                robot.delay(50);
                 doRestoreClipboard();
             }
         }
@@ -53,8 +54,10 @@ public class InputHelper {
 
     private static void doPasteClipboard() {
         try {
-            if (robot == null)
+            if (robot == null) {
                 robot = new Robot();
+                robot.delay(300);
+            }
 
             if (Util.IsMac) {
                 robot.keyPress(KeyEvent.VK_META);
