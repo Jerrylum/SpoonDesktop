@@ -20,7 +20,7 @@ public class Main {
             Thread.sleep(300);
 
             SpoonDesktop desktop = SpoonDesktop.getInstance();
-            MainFrame frame = MainFrame.getInstace();
+            MainFrame frame = MainFrame.getInstance();
 
             if (args.length < 1)
                 return;

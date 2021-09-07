@@ -62,7 +62,7 @@ public class SpoonDesktop {
         else
             connectionStatus = ConnectionStatus.ServerReadyToStart;
 
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public String[] getProvidedAddress() {
@@ -79,7 +79,7 @@ public class SpoonDesktop {
 
     public void setConnectionStatus(ConnectionStatus connectionStatus) {
         this.connectionStatus = connectionStatus;
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public String getChannel() {
@@ -96,7 +96,7 @@ public class SpoonDesktop {
         } catch (Exception e) {
             // TODO: handle exception
         }
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public boolean isAllowNewConnection() {
@@ -105,7 +105,7 @@ public class SpoonDesktop {
 
     public void setIsAllowNewConnection(boolean isAllowNewConnection) {
         this.isAllowNewConnection = isAllowNewConnection;
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public int getClientsCount() {
@@ -120,7 +120,7 @@ public class SpoonDesktop {
 
     public void setIsPrimarySelection(boolean isPrimarySelection) {
         this.isPrimarySelection = isPrimarySelection;
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public boolean isClipboard() {
@@ -129,7 +129,7 @@ public class SpoonDesktop {
 
     public void setIsClipboard(boolean isClipboard) {
         this.isClipboard = isClipboard;
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public boolean isTypingText() {
@@ -138,7 +138,7 @@ public class SpoonDesktop {
 
     public void setIsTypingText(boolean isTypingText) {
         this.isTypingText = isTypingText;
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public void kickAllClients() {
@@ -151,7 +151,7 @@ public class SpoonDesktop {
         } catch (Exception e) {
             // TODO: handle exception
         }
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public void sendMessage(String msg) {
@@ -163,7 +163,7 @@ public class SpoonDesktop {
         } catch (Exception e) {
             // TODO: handle exception
         }
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public void executeAction() {
@@ -191,7 +191,7 @@ public class SpoonDesktop {
                 break;
         }
 
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     public byte[] getSecurityCode() {
@@ -223,7 +223,7 @@ public class SpoonDesktop {
 
     private void doClientConnect() {
         try {
-            String ip = MainFrame.getInstace().getInputAddress();
+            String ip = MainFrame.getInstance().getInputAddress();
             if (!ip.contains(":"))
                 ip += ":7000";
 
@@ -249,7 +249,7 @@ public class SpoonDesktop {
 
     private void doServerStart() {
         try {
-            String ip = MainFrame.getInstace().getInputAddress();
+            String ip = MainFrame.getInstance().getInputAddress();
             String address = "0.0.0.0";
             int port = 7000;
 

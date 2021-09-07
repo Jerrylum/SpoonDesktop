@@ -26,14 +26,14 @@ public class DesktopClientListener extends ClientListener {
     @Override
     @EventHandler
     public void lastMessageReceivedEvent() {
-        MainFrame.getInstace().setInputText("");
+        MainFrame.getInstance().setInputText("");
     }
 
     @Override
     @EventHandler
     public void handleRequireEncryption(RequireEncryptionPacket packet) throws GeneralSecurityException, IOException {
         super.handleRequireEncryption(packet);
-        SpoonDesktop.getInstance().setChannel(MainFrame.getInstace().getInputChannel());
+        SpoonDesktop.getInstance().setChannel(MainFrame.getInstance().getInputChannel());
         SpoonDesktop.getInstance().setConnectionStatus(ConnectionStatus.ClientConnected);
     }
 

@@ -28,7 +28,7 @@ public class DesktopServerListener extends ServerListener {
     @EventHandler
     public void handleClientAESkey(RemoteDevice device, EncryptionBeginPacket packet) throws GeneralSecurityException {
         super.handleClientAESkey(device, packet);
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     @Override
@@ -37,13 +37,13 @@ public class DesktopServerListener extends ServerListener {
         if (!SpoonDesktop.getInstance().isAllowNewConnection())
             event.getDevice().getConnection().getWebSocket().close();
 
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     @Override
     @EventHandler
     public void onClientDisconnectedEvent(ClientDisconnectedEvent event) {
-        MainFrame.getInstace().updateInterface();
+        MainFrame.getInstance().updateInterface();
     }
 
     @EventHandler

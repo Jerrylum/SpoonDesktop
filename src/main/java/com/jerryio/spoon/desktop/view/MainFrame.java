@@ -99,7 +99,7 @@ public class MainFrame {
         });
     }
 
-    public static MainFrame getInstace() {
+    public static MainFrame getInstance() {
         return instance;
     }
 
