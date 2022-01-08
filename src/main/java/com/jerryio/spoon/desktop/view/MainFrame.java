@@ -52,6 +52,7 @@ public class MainFrame {
 
     private JFrame frmSpoonDesktop;
     private JToggleButton tglbtnMode;
+    private JLabel lblServerIP;
     private JComboBox<String> comboAddress;
     private JToggleButton tglbtnAction;
     private JLabel lblChannel;
@@ -140,7 +141,12 @@ public class MainFrame {
         JLabel lblNewLabel_1 = new JLabel("Mode");
         lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 14));
         panel.add(lblNewLabel_1);
-
+        
+        JPanel panel_3_1 = new JPanel();
+        panel_3_1.setMaximumSize(new Dimension(500, 24));
+        panel.add(panel_3_1);
+        panel_3_1.setLayout(new BoxLayout(panel_3_1, BoxLayout.X_AXIS));
+        
         tglbtnMode = new JToggleButton("Client");
         tglbtnMode.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -151,7 +157,14 @@ public class MainFrame {
         });
         tglbtnMode.setMaximumSize(new Dimension(80, 30));
         tglbtnMode.setFont(new Font("Arial", Font.PLAIN, 12));
-        panel.add(tglbtnMode);
+        panel_3_1.add(tglbtnMode);
+
+        Component horizontalStrut_1 = Box.createHorizontalStrut(8);
+        panel_3_1.add(horizontalStrut_1);
+        
+        lblServerIP = new JLabel("(unknown)");
+        lblServerIP.setFont(new Font("Arial", Font.PLAIN, 14));
+        panel_3_1.add(lblServerIP);
 
         Component verticalStrut_1 = Box.createVerticalStrut(8);
         panel.add(verticalStrut_1);
@@ -350,6 +363,8 @@ public class MainFrame {
     public void updateInterface() {
         SpoonDesktop desktop = SpoonDesktop.getInstance();
         boolean isClient = desktop.getMode() == ConnectionMode.CLIENT;
+
+        lblServerIP.setText(isClient ? "" : Util.getMyIP());
 
         tglbtnMode.setText(isClient ? "Client" : "Server");
         tglbtnMode.setSelected(isClient);

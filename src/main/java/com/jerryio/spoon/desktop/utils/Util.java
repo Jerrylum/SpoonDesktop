@@ -1,5 +1,8 @@
 package com.jerryio.spoon.desktop.utils;
 
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -26,5 +29,17 @@ public class Util {
             hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
         }
         return new String(hexChars);
+    }
+    
+    public static String getMyIP() {
+        Socket socket = new Socket();
+        try {
+            socket.connect(new InetSocketAddress("google.com", 80));
+            String rtn = socket.getLocalAddress().getHostAddress();
+            socket.close();
+            return rtn;
+        } catch (IOException e) {
+            return "(error)";
+        }
     }
 }
